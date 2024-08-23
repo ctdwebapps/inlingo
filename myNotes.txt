@@ -13,5 +13,5 @@ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_c2VjdXJlLWJlZS0zNS5jbGVyay5hY2NvdW50cy
 CLERK_SECRET_KEY=sk_test_dd6kDsInrcjVVvxDqsizLnxroC9V0ihubq9SWk7Sjb
 
 
-next lesson 5 Authentication 9min 15sec
+next lesson main layout
 

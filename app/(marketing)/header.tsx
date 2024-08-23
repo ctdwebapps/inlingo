@@ -25,14 +25,11 @@ export const Header = () => {
         </ClerkLoading>
         <ClerkLoaded>
           <SignedIn>
-            <UserButton afterSignOutUrl='/' />
+            {/* <UserButton afterSignOutUrl='/' /> */}
+            <UserButton />
           </SignedIn>
           <SignedOut>
-            <SignInButton
-              mode='modal'
-              forceRedirectUrl='/learn'
-              signUpFallbackRedirectUrl='/learn'
-            >
+            <SignInButton mode='modal' forceRedirectUrl='/learn'>
               <Button size='lg' variant='ghost'>
                 Login
               </Button>
