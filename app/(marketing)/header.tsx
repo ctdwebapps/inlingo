@@ -17,7 +17,7 @@ export const Header = () => {
         <div className='pt-8 pl-4 pb-7 flex items-center gap-x-3'>
           <Image src='/mascot.svg' alt='mascot' width={40} height={40} />
           <h1 className='text-2xl font-extrabold text-green-600 tracking-wide'>
-            Lingo
+            inLingo
           </h1>
         </div>
         <ClerkLoading>
