@@ -13,7 +13,7 @@ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_c2VjdXJlLWJlZS0zNS5jbGVyay5hY2NvdW50cy
 CLERK_SECRET_KEY=sk_test_dd6kDsInrcjVVvxDqsizLnxroC9V0ihubq9SWk7Sjb
 
 
-next lesson main layout 15 mins
+next lesson m14 mins
 
 
 
