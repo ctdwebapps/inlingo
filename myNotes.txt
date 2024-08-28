@@ -20,7 +20,9 @@ CLERK_SECRET_KEY=sk_test_dd6kDsInrcjVVvxDqsizLnxroC9V0ihubq9SWk7Sjb
 # Neon
 DATABASE_URL=postgresql://inLingo_owner:jgPUeQqy0uN8@ep-withered-paper-a1f596h9.ap-southeast-1.aws.neon.tech/inLingo?sslmode=require
 
-next lesson m14 mins
+
+
+next lesson Courses Page 5mins 55
 
 
 
