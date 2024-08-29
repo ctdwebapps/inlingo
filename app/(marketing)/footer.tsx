@@ -7,43 +7,33 @@ export const Footer = () => {
       <div className='max-w-screen-lg mx-auto flex items-center justify-evenly h-full'>
         <Button size='lg' variant='ghost' className='w-full'>
           <Image
-            src='/hr.svg'
-            alt='Croatian'
+            src='/en.svg'
+            alt='English'
             height={32}
             width={40}
             className='mr-4 rounded-md'
           />
-          Croatian
+          English
         </Button>
         <Button size='lg' variant='ghost' className='w-full'>
           <Image
-            src='/es.svg'
-            alt='Spanish'
+            src='/th.svg'
+            alt='Thai'
             height={32}
             width={40}
             className='mr-4 rounded-md'
           />
-          Spanish
+          Thai
         </Button>
         <Button size='lg' variant='ghost' className='w-full'>
           <Image
-            src='/fr.svg'
-            alt='French'
+            src='/cn.svg'
+            alt='Chinese'
             height={32}
             width={40}
             className='mr-4 rounded-md'
           />
-          French
-        </Button>
-        <Button size='lg' variant='ghost' className='w-full'>
-          <Image
-            src='/it.svg'
-            alt='Italian'
-            height={32}
-            width={40}
-            className='mr-4 rounded-md'
-          />
-          Italian
+          Chinese
         </Button>
         <Button size='lg' variant='ghost' className='w-full'>
           <Image
@@ -54,6 +44,16 @@ export const Footer = () => {
             className='mr-4 rounded-md'
           />
           Japanese
+        </Button>
+        <Button size='lg' variant='ghost' className='w-full'>
+          <Image
+            src='/fr.svg'
+            alt='French'
+            height={32}
+            width={40}
+            className='mr-4 rounded-md'
+          />
+          French
         </Button>
       </div>
     </footer>

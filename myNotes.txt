@@ -5,6 +5,10 @@ https://www.codewithantonio.com/courses/12379b16-0a46-4b5e-b091-1b40451cafd5/cha
 icons etc
 https://kenney.nl/
 
+flags etc (see Footer video), he edited in figma
+https://flagpack.xyz/
+
+
 
 clerk richardbed
 neon ctdwebapps
@@ -22,7 +26,7 @@ DATABASE_URL=postgresql://inLingo_owner:jgPUeQqy0uN8@ep-withered-paper-a1f596h9.
 
 
 
-next lesson Courses Page 5mins 55
+next lesson User Progress
 
 
 
