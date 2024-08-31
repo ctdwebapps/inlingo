@@ -26,7 +26,7 @@ DATABASE_URL=postgresql://inLingo_owner:jgPUeQqy0uN8@ep-withered-paper-a1f596h9.
 
 
 
-next lesson User Progress 12.26
+next lesson User Progress start again
 
 
 
