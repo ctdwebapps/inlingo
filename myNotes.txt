@@ -24,9 +24,16 @@ CLERK_SECRET_KEY=sk_test_dd6kDsInrcjVVvxDqsizLnxroC9V0ihubq9SWk7Sjb
 # Neon
 DATABASE_URL=postgresql://inLingo_owner:jgPUeQqy0uN8@ep-withered-paper-a1f596h9.ap-southeast-1.aws.neon.tech/inLingo?sslmode=require
 
+if you have to nuke your Neon database, create a new one and paster the connection string in .env
+Then npm run db:push (to add the schemas [tables])
+npm run db:seed to add your data back
+
+App structure:
+Course => Units => Lessons => Challenges
 
 
-next lesson User Progress start again
+
+next lesson: Units 14 mins
 
 
 
