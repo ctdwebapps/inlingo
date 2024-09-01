@@ -2,7 +2,7 @@ import { cache } from 'react'
 import db from './drizzle'
 import { auth } from '@clerk/nextjs/server'
 import { eq } from 'drizzle-orm'
-import { courses, userProgress } from './schema'
+import { courses, units, userProgress } from './schema'
 
 // Drizzle query to get from the courses table in Neon
 export const getCourses = cache(async () => {
@@ -35,4 +35,27 @@ export const getCourseById = cache(async (courseId: number) => {
     where: eq(courses.id, courseId),
   })
   return data
+})
+
+// get the units, and also all challenges etc within them
+export const getUnits = cache(async () => {
+  // first check if that user has any progress saved, and if not return an empty array
+  const userProgress = await getUserProgress()
+
+  if (!userProgress?.activeCourseId) {
+    return []
+  }
+  // get the units if there is user progress
+  const data = await db.query.units.findMany({
+    where: eq(units.courseId, userProgress.activeCourseId),
+    with: {
+      lessons: {
+        with: {
+          challenges: {
+            with: { challengeProgress: true },
+          },
+        },
+      },
+    },
+  })
 })
