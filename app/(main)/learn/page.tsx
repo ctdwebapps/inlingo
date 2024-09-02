@@ -2,14 +2,15 @@ import { FeedWrapper } from '@/components/FeedWrapper'
 import { StickyWrapper } from '@/components/StickyWrapper'
 import { Header } from './Header'
 import { UserProgress } from '@/components/UserProgress'
-import { getUserProgress } from '@/db/queries'
+import { getUnits, getUserProgress } from '@/db/queries'
 import { redirect } from 'next/navigation'
 
 const LearnPage = async () => {
   const userProgressData = getUserProgress()
+  const unitsData = getUnits()
 
   // promise all will wait for all the promises listed
-  const [userProgress] = await Promise.all([userProgressData])
+  const [userProgress, units] = await Promise.all([userProgressData, unitsData])
 
   // redirect to courses page if there's no user
   if (!userProgress || !userProgress.activeCourse) {
@@ -28,6 +29,19 @@ const LearnPage = async () => {
       </StickyWrapper>
       <FeedWrapper>
         <Header title={userProgress.activeCourse.title} />
+        {units.map((unit) => (
+          <div key={unit.id} className='mb-10'>
+            <Unit
+              id={unit.id}
+              order={unit.order}
+              description={unit.description}
+              title={unit.title}
+              lessons={unit.lessons}
+              activeLesson={null}
+              activeLessonPercentage={0}
+            />
+          </div>
+        ))}
       </FeedWrapper>
     </div>
   )
