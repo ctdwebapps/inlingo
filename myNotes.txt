@@ -33,7 +33,7 @@ Course => Units => Lessons => Challenges
 
 
 
-next lesson: lesson button 4 mins
+next lesson: lesson button 31 mins
 
 
 

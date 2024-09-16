@@ -59,6 +59,30 @@ const main = async () => {
         order: 1, //first lesson
         title: 'Nouns', //lesson name
       },
+      {
+        id: 2, //lesson 2
+        unitId: 1, //unit 1
+        order: 2, //2nd lesson
+        title: 'Verbs', //lesson name
+      },
+      {
+        id: 3, //lesson 3
+        unitId: 1, //unit 1
+        order: 3, //3rd lesson
+        title: 'Family', //lesson name
+      },
+      {
+        id: 4, //lesson 4
+        unitId: 1, //unit 1
+        order: 4, //4th lesson
+        title: 'Food', //lesson name
+      },
+      {
+        id: 5, //lesson 5
+        unitId: 1, //unit 1
+        order: 5, //4th lesson
+        title: 'Travel', //lesson name
+      },
     ])
 
     // questions

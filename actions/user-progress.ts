@@ -42,7 +42,6 @@ export const upsertUserProgress = async (courseId: number) => {
     })
     // we've added a new record to the database, so update our cache too
     revalidatePath('/courses')
-    revalidatePath('/courses')
 
     redirect('/learn')
   }
@@ -54,7 +53,6 @@ export const upsertUserProgress = async (courseId: number) => {
   })
 
   // we've added a new record to the database, so update our cache too
-  revalidatePath('/courses')
   revalidatePath('/courses')
 
   redirect('/learn')
