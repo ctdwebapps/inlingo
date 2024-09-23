@@ -41,7 +41,7 @@ export const ExitModal = () => {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className='mb-4'>
-          <div>
+          <div className='flex w-full flex-col gap-y-4'>
             <Button
               variant='primary'
               className='w-full'
