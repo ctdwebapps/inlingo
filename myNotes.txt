@@ -33,7 +33,7 @@ Course => Units => Lessons => Challenges
 
 
 
-next lesson: lesson button 31 mins
+next lesson: exit modal 9 mins
 
 
 
