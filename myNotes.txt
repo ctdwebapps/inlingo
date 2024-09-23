@@ -33,7 +33,7 @@ Course => Units => Lessons => Challenges
 
 
 
-next lesson: exit modal 9 mins
+next lesson: Challenge Cards start
 
 
 

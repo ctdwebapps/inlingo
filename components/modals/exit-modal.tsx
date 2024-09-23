@@ -50,6 +50,17 @@ export const ExitModal = () => {
             >
               Keep learning
             </Button>
+            <Button
+              variant='dangerOutline'
+              className='w-full'
+              size='lg'
+              onClick={() => {
+                close()
+                router.push('/learn')
+              }}
+            >
+              End Session
+            </Button>
           </div>
         </DialogFooter>
       </DialogContent>
