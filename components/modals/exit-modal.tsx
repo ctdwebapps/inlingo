@@ -22,6 +22,7 @@ export const ExitModal = () => {
   const { isOpen, close } = useExitModal()
 
   useEffect(() => setIsClient(true), [])
+
   if (!isClient) {
     return null
   }

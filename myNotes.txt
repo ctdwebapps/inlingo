@@ -33,7 +33,7 @@ Course => Units => Lessons => Challenges
 
 
 
-next lesson: Challenge Cards start
+next lesson: Challenge Footer start
 
 
 
