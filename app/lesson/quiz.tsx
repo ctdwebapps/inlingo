@@ -6,6 +6,7 @@ import { Header } from './header'
 import { QuestionBubble } from './question-bubble'
 import { Challenge } from './challenge'
 import { Footer } from './footer'
+import React from 'react'
 
 type Props = {
   initialPercentage: number
