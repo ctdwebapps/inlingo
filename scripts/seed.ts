@@ -85,7 +85,7 @@ const main = async () => {
       },
     ])
 
-    // questions
+    // questions (challenges)
     await db.insert(schema.challenges).values([
       {
         id: 1, //challenge id
@@ -94,12 +94,25 @@ const main = async () => {
         order: 1, //first challenge
         question: 'Which one of these is "the man"?', //the actual question
       },
+      {
+        id: 2,
+        lessonId: 1,
+        type: 'ASSIST',
+        order: 2,
+        question: '"the man"',
+      },
+      {
+        id: 3,
+        lessonId: 1,
+        type: 'SELECT',
+        order: 3,
+        question: 'Which one of these is "the robot"?',
+      },
     ])
 
-    // answer options
+    // answer (challenge) options
     await db.insert(schema.challengeOptions).values([
       {
-        id: 1, //first option
         challengeId: 1, //answers for the first challenge
         imageSrc: '/man.svg',
         correct: true,
@@ -107,7 +120,6 @@ const main = async () => {
         audioSrc: '/es_man.mp3',
       },
       {
-        id: 2, //second option
         challengeId: 1, //answers for the first challenge
         imageSrc: '/woman.svg',
         correct: false,
@@ -115,10 +127,55 @@ const main = async () => {
         audioSrc: '/es_woman.mp3',
       },
       {
-        id: 3,
         challengeId: 1, //answers for the first challenge
         imageSrc: '/robot.svg',
         correct: false,
+        text: 'el robot',
+        audioSrc: '/es_robot.mp3',
+      },
+    ])
+
+    // this challenge is an assist so no image, etc
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 2,
+        correct: true,
+        text: 'el hombre',
+        audioSrc: '/es_man.mp3',
+      },
+      {
+        challengeId: 2,
+        correct: false,
+        text: 'la mujer',
+        audioSrc: '/es_woman.mp3',
+      },
+      {
+        challengeId: 2,
+        correct: false,
+        text: 'el robot',
+        audioSrc: '/es_robot.mp3',
+      },
+    ])
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 3,
+        imageSrc: '/man.svg',
+        correct: false,
+        text: 'el hombre',
+        audioSrc: '/es_man.mp3',
+      },
+      {
+        challengeId: 3,
+        imageSrc: '/woman.svg',
+        correct: false,
+        text: 'la mujer',
+        audioSrc: '/es_woman.mp3',
+      },
+      {
+        challengeId: 3,
+        imageSrc: '/robot.svg',
+        correct: true,
         text: 'el robot',
         audioSrc: '/es_robot.mp3',
       },
