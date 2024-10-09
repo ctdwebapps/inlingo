@@ -8,6 +8,9 @@ https://kenney.nl/
 flags etc (see Footer video), he edited in figma
 https://flagpack.xyz/
 
+sounds
+freesound.org
+
 
 
 clerk richardbed
@@ -33,7 +36,7 @@ Course => Units => Lessons => Challenges
 
 
 
-next lesson: Challenge Actions 27 mins
+next lesson: Challenge finish screen 10 mins
 
 
 
