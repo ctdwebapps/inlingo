@@ -36,7 +36,19 @@ Course => Units => Lessons => Challenges
 
 
 
-next lesson: Shop lesson start
+next lesson: Shop lesson 4 mins 45
 
 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+other examples:
+
+https://github.com/bryanjenningz/react-duolingo/tree/master?tab=readme-ov-file
+https://react-duolingo-clone.vercel.app/
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+reads on educational apps:
+
+https://www.visartech.com/blog/how-to-create-a-language-learning-app-like-duolingo/
 
