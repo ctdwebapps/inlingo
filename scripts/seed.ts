@@ -181,6 +181,30 @@ const main = async () => {
       },
     ])
 
+    await db.insert(schema.challenges).values([
+      {
+        id: 4, //challenge id
+        lessonId: 2, //Verbs lesson
+        type: 'SELECT', //our enum type of challenge
+        order: 1, //first challenge
+        question: 'Which one of these is "the man"?', //the actual question
+      },
+      {
+        id: 5,
+        lessonId: 2,
+        type: 'ASSIST',
+        order: 2,
+        question: '"the man"',
+      },
+      {
+        id: 6,
+        lessonId: 2,
+        type: 'SELECT',
+        order: 3,
+        question: 'Which one of these is "the robot"?',
+      },
+    ])
+
     console.log('Seeding finished')
   } catch (error) {
     console.error(error)
