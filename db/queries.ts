@@ -48,11 +48,14 @@ export const getUnits = cache(async () => {
   // get the units if there is user progress, including all their lessons and challenges (Course => unit => lesson => challenge)
   const data = await db.query.units.findMany({
     // find the units which match the currently selected course
+    orderBy: (units, { asc }) => [asc(units.order)],
     where: eq(units.courseId, userProgress.activeCourseId),
     with: {
       lessons: {
+        orderBy: (lessons, { asc }) => [asc(lessons.order)],
         with: {
           challenges: {
+            orderBy: (challenges, { asc }) => [asc(challenges.order)],
             with: {
               challengeProgress: {
                 where: eq(challengeProgress.userId, userId),
@@ -227,4 +230,25 @@ export const getUserSubscription = cache(async () => {
     ...data,
     isActive: !!isActive,
   }
+})
+
+// to get the top 10 learners fro the Leaderboard
+export const getTopTenUsers = cache(async () => {
+  const { userId } = await auth()
+
+  if (!userId) {
+    return []
+  }
+
+  const data = await db.query.userProgress.findMany({
+    orderBy: (userProgress, { desc }) => [desc(userProgress.points)],
+    limit: 10,
+    columns: {
+      userId: true,
+      userName: true,
+      userImgSrc: true,
+      points: true,
+    },
+  })
+  return data
 })

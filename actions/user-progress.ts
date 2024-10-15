@@ -3,6 +3,7 @@
 
 'use server'
 
+import { POINTS_TO_REFILL } from '@/constants'
 import db from '@/db/drizzle'
 import {
   getCourseById,
@@ -14,8 +15,6 @@ import { auth, currentUser } from '@clerk/nextjs/server'
 import { and, eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-
-const POINTS_TO_REFILL = 10
 
 export const upsertUserProgress = async (courseId: number) => {
   const { userId } = await auth()
