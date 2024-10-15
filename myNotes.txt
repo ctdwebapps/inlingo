@@ -19,13 +19,19 @@ neon ctdwebapps
 npm run db:studio
 npm run db:push
 
-env
 # Clerk
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_c2VjdXJlLWJlZS0zNS5jbGVyay5hY2NvdW50cy5kZXYk
 CLERK_SECRET_KEY=sk_test_dd6kDsInrcjVVvxDqsizLnxroC9V0ihubq9SWk7Sjb
 
 # Neon
-DATABASE_URL=postgresql://inLingo_owner:jgPUeQqy0uN8@ep-withered-paper-a1f596h9.ap-southeast-1.aws.neon.tech/inLingo?sslmode=require
+DATABASE_URL=postgresql://inLingo_owner:qmIku0Z3FlfP@ep-dawn-heart-a16wmvxd.ap-southeast-1.aws.neon.tech/inLingo?sslmode=require
+
+#Stripe
+STRIPE_API_KEY=sk_test_51QA22yDHkh8KQMLcn7Jky6dYioNu3cOEB9NOgyYWZkgOrwLumSRMPJXi4FVbVg8p9im6VP5G19pIufOOQhILvnYx00vBZSwnUV
+
+# for Stripe
+NEXT_PUBLIC_APP_URL='http://localhost:3000'
+STRIPE_WEBHOOK_SECRET=whsec_5206b0fd93b719448df56f127723d52cd7ac815e9ccdb02cc15ca0bb45ccee52
 
 if you have to nuke your Neon database, create a new one and paster the connection string in .env
 Then npm run db:push (to add the schemas [tables])
@@ -34,9 +40,15 @@ npm run db:seed to add your data back
 App structure:
 Course => Units => Lessons => Challenges
 
+Stripe
+richardbinl
+pw: o3t9KIsL81nH1B6
+
+when in development and still on localhost, must start Stripe websocket listening first in terminal:
+stripe listen --forward-to localhost:3000/api/webhooks/stripe
 
 
-next lesson: Shop lesson 4 mins 45
+next lesson: Details 11mins
 
 
 

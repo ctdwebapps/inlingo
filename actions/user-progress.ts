@@ -4,12 +4,18 @@
 'use server'
 
 import db from '@/db/drizzle'
-import { getCourseById, getUserProgress } from '@/db/queries'
+import {
+  getCourseById,
+  getUserProgress,
+  getUserSubscription,
+} from '@/db/queries'
 import { challengeProgress, challenges, userProgress } from '@/db/schema'
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { and, eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
+
+const POINTS_TO_REFILL = 10
 
 export const upsertUserProgress = async (courseId: number) => {
   const { userId } = await auth()
@@ -27,9 +33,9 @@ export const upsertUserProgress = async (courseId: number) => {
   }
 
   // if there are no units or lessons in a course
-  // if (!course.units.length || !course.units[0].lessons.length) {
-  //   throw new Error('Course is empty')
-  // }
+  if (!course.units.length || !course.units[0].lessons.length) {
+    throw new Error('Course is empty')
+  }
 
   const existingUserProgress = await getUserProgress()
 
@@ -67,6 +73,7 @@ export const reduceHearts = async (challengeId: number) => {
   }
 
   const currentUserProgress = await getUserProgress()
+  const userSubscription = await getUserSubscription()
 
   const challenge = await db.query.challenges.findFirst({
     where: eq(challenges.id, challengeId),
@@ -90,8 +97,13 @@ export const reduceHearts = async (challengeId: number) => {
   if (isPractice) {
     return { error: 'practice' }
   }
+
   if (!currentUserProgress) {
     throw new Error('User progress not found')
+  }
+
+  if (userSubscription?.isActive) {
+    return { error: 'subscription' }
   }
 
   if (currentUserProgress.hearts === 0) {
@@ -110,4 +122,32 @@ export const reduceHearts = async (challengeId: number) => {
   revalidatePath('/quests')
   revalidatePath('/leaderboard')
   revalidatePath(`/lesson/${lessonId}`)
+}
+
+export const refillHearts = async () => {
+  const currentUserProgress = await getUserProgress()
+
+  if (!currentUserProgress) {
+    throw new Error('User progress not found')
+  }
+
+  if (currentUserProgress.hearts === 5) {
+    throw new Error('Hearts are already full')
+  }
+
+  if (currentUserProgress.points < POINTS_TO_REFILL) {
+    throw new Error('Not enough points')
+  }
+  await db
+    .update(userProgress)
+    .set({
+      hearts: 5,
+      points: currentUserProgress.points - POINTS_TO_REFILL,
+    })
+    .where(eq(userProgress.userId, currentUserProgress.userId))
+
+  revalidatePath('/shop')
+  revalidatePath('/learn')
+  revalidatePath('/quests')
+  revalidatePath('/leaderboard')
 }

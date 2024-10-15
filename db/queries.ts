@@ -8,6 +8,7 @@ import {
   lessons,
   units,
   userProgress,
+  userSubscription,
 } from './schema'
 
 // Drizzle query to get from the courses table in Neon
@@ -87,6 +88,16 @@ export const getCourseById = cache(async (courseId: number) => {
   const data = await db.query.courses.findFirst({
     // courses table id field (column) and a number we pass in as an attribute when calling
     where: eq(courses.id, courseId),
+    with: {
+      units: {
+        orderBy: (units, { asc }) => [asc(units.order)],
+        with: {
+          lessons: {
+            orderBy: (lessons, { asc }) => [asc(lessons.order)],
+          },
+        },
+      },
+    },
   })
   return data
 })
@@ -193,4 +204,27 @@ export const getLessonPercentage = cache(async () => {
     (completedChallenges.length / lesson.challenges.length) * 100
   )
   return percentage
+})
+
+// for Stripe
+const DAY_IN_MS = 86_400_000
+export const getUserSubscription = cache(async () => {
+  const { userId } = await auth()
+
+  if (!userId) return null
+
+  const data = await db.query.userSubscription.findFirst({
+    where: eq(userSubscription.userId, userId),
+  })
+
+  if (!data) return null
+
+  const isActive =
+    data.stripePriceId &&
+    data.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS > Date.now()
+
+  return {
+    ...data,
+    isActive: !!isActive,
+  }
 })
