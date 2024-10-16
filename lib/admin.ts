@@ -1,21 +1,13 @@
-// import { auth } from '@clerk/nextjs/server'
-
-// const adminIds = ['user_2l3BuLDRDbwFF7mNEnrBwFijHAC']
-
-// export const getIsAdmin = async () => {
-//   const { userId } = await auth()
-
-//   if (!userId) {
-//     return false
-//   }
-
-//   return adminIds.indexOf(userId) !== -1
-// }
-
 import { auth } from '@clerk/nextjs/server'
+
+const adminIds = ['user_2kvWkCv4WKGKn6MKKXapK76fTrj']
 
 export const getIsAdmin = async () => {
   const { userId } = await auth()
 
-  return userId === 'user_2l3BuLDRDbwFF7mNEnrBwFijHAC'
+  if (!userId) {
+    return false
+  }
+
+  return adminIds.indexOf(userId) !== -1
 }
