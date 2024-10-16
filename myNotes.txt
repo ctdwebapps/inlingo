@@ -16,6 +16,10 @@ freesound.org
 clerk richardbed
 neon ctdwebapps
 
+app admin users:
+richardb@in...
+ctdweb...
+
 npm run db:studio
 npm run db:push
 
@@ -48,7 +52,7 @@ when in development and still on localhost, must start Stripe websocket listenin
 stripe listen --forward-to localhost:3000/api/webhooks/stripe
 
 
-next lesson: Admin start
+next lesson: Admin 27 mins
 
 
 
