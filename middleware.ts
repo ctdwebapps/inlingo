@@ -5,10 +5,12 @@ const isProtectedRoute = createRouteMatcher([
   '/courses(.*)',
   '/learn(.*)',
   '/shop(.*)',
+  '/leaderboard(.*)',
+  '/admin(.*)',
 ])
 
-export default clerkMiddleware((auth, request) => {
-  if (isProtectedRoute(request)) {
+export default clerkMiddleware((auth, req) => {
+  if (isProtectedRoute(req)) {
     auth().protect()
   }
   return NextResponse.next()
