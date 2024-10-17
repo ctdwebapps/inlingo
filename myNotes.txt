@@ -17,6 +17,8 @@ ElevenLabs
 
 clerk richardbed
 neon ctdwebapps
+vercel ctdwebapps
+github ctdwebapps
 
 app admin users:
 richardb@in...
