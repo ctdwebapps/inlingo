@@ -2,7 +2,7 @@ antonio site: richardbed
 https://www.codewithantonio.com/courses/12379b16-0a46-4b5e-b091-1b40451cafd5/chapters/d5369dec-4e04-4bc8-9405-a3c79e958897
 
 
-icons etc
+icons etc and pictures for teh questions
 https://kenney.nl/
 
 flags etc (see Footer video), he edited in figma
@@ -11,6 +11,8 @@ https://flagpack.xyz/
 sounds
 freesound.org
 
+AI voices
+ElevenLabs
 
 
 clerk richardbed
