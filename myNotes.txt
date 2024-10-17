@@ -56,7 +56,7 @@ when in development and still on localhost, must start Stripe websocket listenin
 stripe listen --forward-to localhost:3000/api/webhooks/stripe
 
 
-next lesson: Admin 27 mins
+
 
 
 
